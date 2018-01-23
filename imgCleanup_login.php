@@ -3,17 +3,15 @@ session_start();
 $errorText = "";
 
 
-// dbServer, dbUser, dbPassword, and dbName omitted from public files
-// they'd be in the following:
-//$_SESSION['servername'] = XXXXXX;
-//$_SESSION['username'] = XXXXXX;
-//$_SESSION['password'] = XXXXXX;
-//$_SESSION['database'] = XXXXXX;
-
-$_SESSION['imgWebRoot'] = 'http://shannon.cs.illinois.edu/DenotationGraph/graph/flickr30k-images/';
+// Load the database params from a config file that isn't public
+$configArr = parse_ini_file("db_config.ini");
+$_SESSION['servername'] = $configArr['dbServer'];
+$_SESSION['username'] = $configArr['dbUser'];
+$_SESSION['password'] = $configArr['dbPassword'];
+$_SESSION['database'] = $configArr['dbName'];
+$_SESSION['imgWebRoot'] = $configArr['flickrWebRoot'];
 $_SESSION['reviewedImgs'] = 0;
 $_SESSION['totalTime'] = 0;
-
 
 $conn = new mysqli($_SESSION['servername'],$_SESSION['username'],
     $_SESSION['password'],$_SESSION['database']);
@@ -55,14 +53,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header('location: imgCleanup_logout.php');
             }
 
-            //
-            /*
-        } else if($usr == "chunkOnly") {
-            $_SESSION['usr'] = 'ccervan2';
-            $_SESSION['tier'] = 3;
-            header('location: imgCleanup.php?chunkOnly');
-        } else if($usr == "debug") {
-            header('location: imgCleanup.php?debug');*/
         } else {
             $errorText = "Invalid net ID.<br/>Please contact ccervan2@illinois.edu to be added to authorized users.";
         }

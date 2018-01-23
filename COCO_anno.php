@@ -1,10 +1,13 @@
 <?php
 session_start();
 
-
-// dbServer, dbUser, dbPassword, and dbName omitted from public files
-$imgWebRoot = "http://ccervan2.web.engr.illinois.edu/mscoco/imgs/";
-
+// Load the database params from a config file that isn't public
+$configArr = parse_ini_file("db_config.ini");
+$dbServer = $configArr['dbServer'];
+$dbUser = $configArr['dbUser'];
+$dbPassword = $configArr['dbPassword'];
+$dbName = $configArr['dbName'];
+$imgWebRoot = $configArr['cocoWebRoot'];
 
 //create a DB conn
 $conn = new mysqli($dbServer, $dbUser, $dbPassword, $dbName);

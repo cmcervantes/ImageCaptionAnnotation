@@ -1,19 +1,9 @@
 <?php
 session_start();
 
-/*
 if(!isset($_SESSION['servername'])){
     header('location: imgCleanup_login.php');
 }
-*/
-
-$_SESSION['servername'] = 'localhost';
-//$_SESSION['servername'] = 'engr-cpanel-mysql.engr.illinois.edu';
-$_SESSION['username'] = 'ccervan2_root';
-$_SESSION['password'] = 'thenIdefyheaven!';
-$_SESSION['database'] = 'ccervan2_legacyImageCaption';
-$_SESSION['imgWebRoot'] = 'http://shannon.cs.illinois.edu/DenotationGraph/graph/flickr30k-images/';
-
 
 //init our global vars
 $servername = $_SESSION['servername'];
