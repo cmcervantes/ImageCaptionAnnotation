@@ -1,0 +1,32 @@
+=================================================
+ImageCaptionAnnotation
+=================================================
+The ImageCaptionAnnotation project was intended as a repository
+for the ad-hoc files written in support of the Flickr30kEntities v2
+re-annotation effort. Due to changing project requirements and
+a strong focus on other projects, these pages contain enough
+issues to render them mostly unusable.
+
+At the height of their functionality, multiple users would
+log in to imageCleanup_login.php, which would initialize their
+individual session and send them to imgCleanup.php, which would
+serve them individualized images to annotate (depending on their
+difficulty tier). In this way, imgCleanup was the workhorse,
+pulling image caption data from MySQL, displaying images and
+captions along with box-chain associations and bounding box
+overlays. This page also had two modes:
+
+In coreference mode, users were shown captions' entity mentions,
+which were color coded to correspond to chain assignments. Users
+could then click on the subscripted chain IDs to change the assignment.
+
+In chunking mode, users were shown captions' chunks (non-overlapping
+text spans) with superscripted chunk types, which allowed them to
+correct chunking errors.
+
+Later, COCO_anno.php was added to serve a similar function for
+the MSCOCO annotation effort, and COCO.php and Flickr30kEntities_v2.php
+were introduced to easily review the image caption annotations.
+
+In short, the pages in this project are in disrepair, but represent
+significant effort to provide an image-caption annotation interface.

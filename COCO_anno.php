@@ -6,7 +6,7 @@ $configArr = parse_ini_file("db_config.ini");
 $dbServer = $configArr['dbServer'];
 $dbUser = $configArr['dbUser'];
 $dbPassword = $configArr['dbPassword'];
-$dbName = $configArr['dbName'];
+$dbName = $configArr['cocoDbName'];
 $imgWebRoot = $configArr['cocoWebRoot'];
 
 //create a DB conn
